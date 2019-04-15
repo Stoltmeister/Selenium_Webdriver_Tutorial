@@ -23,6 +23,16 @@ public class WebDriverDemo {
 
         WebElement searchField = driver.findElement(By.name("q"));
         searchField.sendKeys("pluralsight");
-        searchField.sendKeys(Keys.RETURN);
+        searchField.submit();
+
+        WebElement imagesLink = driver.findElements(By.linkText("Images")).get(0);
+        imagesLink.click();
+
+        WebElement imageElement = driver.findElement(By.cssSelector("#rg_s > div:nth-child(11) > a.rg_l"));
+        WebElement imageLink = imageElement.findElements(By.tagName("img")).get(0);
+        imageLink.click();
+
+        //driver.getPageSource().contains("Whatever string you want to search for");
+
     }
 }
